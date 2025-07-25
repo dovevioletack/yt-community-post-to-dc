@@ -1,10 +1,17 @@
-import { WebhookClient, ComponentType, ButtonStyle, type Webhook } from 'discord.js';
+import { WebhookClient, ComponentType, ButtonStyle, type Webhook, Client, Events, GatewayIntentBits, TextChannel } from 'discord.js';
 import { writeFile } from "node:fs/promises";
 import { scrapePosts, type Post } from "./scrapeyt.ts";
 
 const dataWebhook = new WebhookClient({ url: process.env.dataWebhook! });
 const fetchDataMessage = async () => await dataWebhook.fetchMessage("1398389736833548289");
 const webhookClient = new WebhookClient({ url: process.env.webhook! });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
+
+client.on(Events.ClientReady, readyClient => {
+  console.log(`Logged in as ${readyClient.user.tag}!`);
+});
+
+client.login(process.env.token);
 
 export const formatNews = (raw: string): string => {
   const lines: string[] = raw
@@ -191,7 +198,7 @@ const handleYTPost = async (post: Post, webhook: Webhook | WebhookClient, subtex
       if (toAdd.length + (subtext?.length ?? 0) <= 1990) contents += toAdd;
     }
   }
-  await webhook.send({
+  const webhookMessage = await webhook.send({
     content: formatNews(contents) + (subtext ? "\n-# " + subtext : ""),
     files: post.attachment.image ? [
       {
@@ -236,6 +243,11 @@ const handleYTPost = async (post: Post, webhook: Webhook | WebhookClient, subtex
       }
     ]
   })
+  const message = await (await client.channels.fetch("1217494766397296771") as TextChannel).messages.fetch(webhookMessage.id);
+  if (message.crosspostable) {
+    await message.crosspost();
+    await (await client.channels.fetch("1298636053552300052") as TextChannel).send("<@&1216817149335703572>");
+  }
 }
 
 setInterval(async () => {
