@@ -257,3 +257,10 @@ setInterval(async () => {
 
   if (newPosts.at(-1)?.postId) await dataWebhook.editMessage("1398389736833548289", newPosts.at(-1)!.postId);
 }, 60000);
+
+Bun.serve({
+  port: 3000,
+  fetch(req) {
+  return new Response("The sending to DC web service is active.");
+  }
+});
