@@ -96,7 +96,7 @@ export const formatNews = (raw: string): string => {
 
   const footer: string = `============================================================
 
-For you who are reading this outside the server and want to get informed on your server by following server announcements, you need to get Level 10 in Triorder Mijovia Boudroholm. Join here: <https://discord.gg/UkjYqDFMW4> [verification required]  
+For you who are reading this outside the server and want to get informed on your server by following server announcements, you need to get Level 10 in Triorder Mijovia Boudroholm. Join here: <https://discord.gg/eTv4swshuv> [verification required]  
 For you who are not subscribed and reading this in Discord, subscribe: <https://www.youtube.com/@Dillemia>
 
 *Stay tuned for the next ${newsName} media post*`;
