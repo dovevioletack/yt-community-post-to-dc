@@ -37,16 +37,16 @@ export const formatNews = (raw: string): string => {
   const dateLine: string = `## ${newsDate}`;
 
   const digitEmoji: Record<string, string> = {
-    '1': '<:MJV_1:1243189658465341470>',
-    '2': '<:MJV_2:1243189722638192640>',
-    '3': '<:MJV_3:1243189725339193354>',
-    '4': '<:MJV_4:1243189727385882646>',
-    '5': '<:MJV_5:1243189729206472755>',
-    '6': '<:MJV_6:1243189730821279864>',
-    '7': '<:MJV_7:1243189732733878373>',
-    '8': '<:MJV_8:1243189734440697917>',
-    '9': '<:MJV_9:1243189736340852777>',
-    '0': '<:MJV_0:1243189593331859476>',
+    '1': '<:MJV_1:1403666931059261590>',
+    '2': '<:MJV_2:1403666934666362953>',
+    '3': '<:MJV_3:1403666936067264512>',
+    '4': '<:MJV_4:1403666937170366547>',
+    '5': '<:MJV_5:1403666938772852746>',
+    '6': '<:MJV_6:1403666940244918311>',
+    '7': '<:MJV_7:1403666942237216798>',
+    '8': '<:MJV_8:1403666943570870363>',
+    '9': '<:MJV_9:1403666975581802619>',
+    '0': '<:MJV_0:1403666929511698545>',
   };
 
   const items: string[] = [];
@@ -96,10 +96,10 @@ export const formatNews = (raw: string): string => {
 
   const footer: string = `============================================================
 
-For you who are reading this outside the server and want to get informed on your server by following server announcements, you need to get Level 10 in Triorder Mijovia Boudroholm. Join here: <https://discord.gg/eTv4swshuv> [verification required]  
+For you who are reading this outside the server and want to get informed on your server by following server announcements, you need to get Level 10 in Triorder Mijovia Boudroholm. Join here: <https://discord.gg/UkjYqDFMW4> [verification required]  
 For you who are not subscribed and reading this in Discord, subscribe: <https://www.youtube.com/@Dillemia>
 
-*Stay tuned for the next ${newsName} media post*`;
+*Servers that support ${newsName} media on Discord: Triorder Mijovia, Triorder Finutria, Triorder Camramia, Triorder Icoland, Earferana Chornicles, Epik_evv’s basement, StillChillea, Rating Gaming Federation, Impervetica, F.R of Momdnineland, Catoria, Bamber rating gaming the goat hangout, Logy's server zone, Dustinburg Wygelia and Aldi Empire.*`;
 
   return [titleLine, dateLine, '', ...items, footer].join('\n\n');
 };
