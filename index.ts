@@ -250,7 +250,7 @@ const handleYTPost = async (post: Post, webhook: Webhook | WebhookClient, subtex
   }
 }
 
-setInterval(async () => {
+const searchPosts = async () => {
   const posts = await scrapePosts("UCAv7n_0TS3MbP3OdisnuM7A", true);
   const previousLast = (await fetchDataMessage()).content;
   const newPosts = [];
@@ -268,7 +268,11 @@ setInterval(async () => {
   }
 
   if (newPosts.at(-1)?.postId) await dataWebhook.editMessage("1398389736833548289", newPosts.at(-1)!.postId);
-}, 60000);
+};
+
+await searchPosts();
+
+setInterval(searchPosts, 60000);
 
 Bun.serve({
   port: 3000,
