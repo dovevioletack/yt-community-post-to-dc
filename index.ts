@@ -96,10 +96,8 @@ export const formatNews = (raw: string): string => {
 
   const footer: string = `============================================================
 
-For you who are reading this outside the server and want to get informed on your server by following server announcements, you need to get Level 10 in Triorder Mijovia Boudroholm. Join here: <https://discord.gg/UkjYqDFMW4> [verification required]  
-For you who are not subscribed and reading this in Discord, subscribe: <https://www.youtube.com/@Dillemia>
-
-*Servers that support ${newsName} media on Discord: Triorder Mijovia, Triorder Finutria, Triorder Camramia, Triorder Icoland, Earferana Chornicles, Epik_evv’s basement, StillChillea, Rating Gaming Federation, Impervetica, F.R of Momdnineland, Catoria, Bamber rating gaming the goat hangout, Logy's server zone, Dustinburg Wygelia and Aldi Empire.*`;
+*For you who are reading this outside the server and want to get informed on your server by following server announcements, you need to get Level 10 in Millennavia, Boudroholm. Join here: <https://discord.gg/fk4gPDeaCP> [verification required]
+For you who are not subscribed and reading this in Discord, subscribe: <https://www.youtube.com/@MillenniumXYZNews>*`;
 
   return [titleLine, dateLine, '', ...items, footer].join('\n\n');
 };
